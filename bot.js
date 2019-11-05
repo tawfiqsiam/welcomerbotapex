@@ -17,7 +17,7 @@ let done = {};
 
 
 const sWlc = {}
-const premium = ['411137717884289024', '447112216123277335', '', '']
+const premium = ['641222138879016970', '447112216123277335', '', '']
 client.on('message', message => {
 var prefix = "p";
 if(message.channel.type === "dm") return;
@@ -40,18 +40,18 @@ client.on("guildMemberAdd", member => {
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
-    let welcomer = member.guild.channels.find('name', sChannel);
+    let welcomer = member.guild.channels.find('name', chat);
     let memberavatar = member.user.avatarURL
       if (!welcomer) return;
       if(welcomer) {
-         moment.locale('ar-ly');
+         moment.locale('en-uk');
          var h = member.user;
         let heroo = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(h.avatarURL)
         .setAuthor(h.username,h.avatarURL)
-        .addField(': تاريخ دخولك الدسكورد',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.createdAt).fromNow()}\``,true)
-         .addField(': تاريخ دخولك السيرفر',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)
+        .addField(': Joined Discord',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.createdAt).fromNow()}\``,true)
+         .addField(': Joined the server',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)
          .setFooter(`${h.tag}`,"https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif")
      welcomer.send({embed:heroo});
 
@@ -109,7 +109,7 @@ client.on("guildMemberAdd", member => {
       const ei = guildInvites[member.guild.id];
       const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
       const inviter = client.users.get(invite.inviter.id);
-       welcomer.send(`<@${member.user.id}> تمت الدعوه من <@${inviter.id}>`);
+       welcomer.send(`<@${member.user.id}>Invited By <@${inviter.id}>`);
     }); 
   });
      })
